@@ -1,13 +1,20 @@
 <h1>All Cats</h1>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card" style="width: 18rem;">
+  <div class="card-deck">
+    <% @cats.each do |cat| %>
+    <div class="card catcard" style="width: 25vh;">
+    <img src="<%=cat.image_url%>" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <h4 class="card-title"><strong><%= cat.name %></strong></h4>
+        <p class="card-text"> <strong>Age:</strong> <%= cat.age %></p>
+        <p class="card-text"> <strong>Location:</strong> <%= cat.location %></p>
+        <p class="card-text"> <strong>Description:</strong> <%= cat.description %></p>
+        <% if cat.house_cat %>
+           <p class="card-text"><%= cat.name %> is a  <strong>house cat</strong>. You will need to come to <%= cat.name %>'s house to kittysit them.</p>
+          <% else %>
+          <p class="card-text"><%= cat.name %> is <strong>not a house cat</strong>. You can kittysit <%= cat.name %> at your house or theirs. Contact <%= cat.name %>'s owner to make arrangements.</p>
+          <% end %>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-
+    <% end %>
 </div>
