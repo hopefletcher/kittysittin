@@ -34,14 +34,14 @@ class CatsController < ApplicationController
     redirect_to cat_path
   end
 
-  def my_cats
-    @cats = Cat.where(user: current_user)
-  end
+  # def my_cats
+  #   @cats = Cat.where(user: current_user)
+  # end
 
   private
 
   def set_cat
-    @cat = Cat.find(paramss[:id])
+    @cat = Cat.find(params[:id])
   end
 
   def cat_params
