@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :edit, :update, :dstroy]
+  before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def index
     @cats = Cat.all
@@ -31,7 +31,7 @@ class CatsController < ApplicationController
 
   def destroy
     @cat.destroy
-    redirect_to cat_path
+    redirect_to cats_path
   end
 
   # def my_cats
