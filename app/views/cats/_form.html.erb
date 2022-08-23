@@ -1,0 +1,10 @@
+<%= simple_form_for @cat do |p| %>
+  <%= p.input :name %>
+  <%= p.input :age, as: :numeric %>
+  <%= p.input :location %>
+  <%= p.input :house_cat, as: :boolean%>
+  <%= p.input :description, as: :text, :input_html => { :rows => 3 } %>
+  <%= p.input :image_url, as: :url %>
+  <%= p.input :pay, as: :numeric %>
+  <%= p.submit %>
+<% end %>

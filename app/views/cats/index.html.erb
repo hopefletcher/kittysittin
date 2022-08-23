@@ -1,20 +1,24 @@
 <h1>All Cats</h1>
-  <div class="card-deck">
-    <% @cats.each do |cat| %>
-    <div class="card catcard" style="width: 25vh;">
-    <img src="<%=cat.image_url%>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h4 class="card-title"><strong><%= cat.name %></strong></h4>
-        <p class="card-text"> <strong>Age:</strong> <%= cat.age %></p>
-        <p class="card-text"> <strong>Location:</strong> <%= cat.location %></p>
-        <p class="card-text"> <strong>Description:</strong> <%= cat.description %></p>
-        <% if cat.house_cat %>
-           <p class="card-text"><%= cat.name %> is a  <strong>house cat</strong>. You will need to come to <%= cat.name %>'s house to kittysit them.</p>
-          <% else %>
-          <p class="card-text"><%= cat.name %> is <strong>not a house cat</strong>. You can kittysit <%= cat.name %> at your house or theirs. Contact <%= cat.name %>'s owner to make arrangements.</p>
-          <% end %>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container">
+  <div class="row">
+  <div class="cards">
+      <% @cats.each do |cat| %>
+      <div class="card catcard">
+      <img src="<%=cat.image_url%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 class="card-title"><strong><%= cat.name %></strong></h4>
+          <p class="card-text"> <strong>Age:</strong> <%= cat.age %></p>
+          <p class="card-text"> <strong>Location:</strong> <%= cat.location %></p>
+          <p class="card-text"> <strong>Description:</strong> <%= cat.description %></p>
+          <% if cat.house_cat %>
+            <p class="card-text"><%= cat.name %> is a  <strong>house cat</strong>. You will need to come to <%= cat.name %>'s house to kittysit them.</p>
+            <% else %>
+            <p class="card-text"><%= cat.name %> is <strong>not a house cat</strong>. You can kittysit <%= cat.name %> at your house or theirs. Contact <%= cat.name %>'s owner to make arrangements.</p>
+            <% end %>
+          <%= link_to "View", cat_path(cat), class: "btn btn-primary", style: "margin-top: auto" %>
+        </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
-</div>
+    </div>
+  </div>
