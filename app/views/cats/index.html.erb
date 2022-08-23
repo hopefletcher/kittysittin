@@ -4,7 +4,13 @@
   <div class="cards">
       <% @cats.each do |cat| %>
       <div class="card catcard">
-      <img src="<%=cat.image_url%>" class="card-img-top" alt="...">
+      <% if cat.photo.attached? %>
+        <%= cl_image_tag cat.photo.key, class:"cloud-img" %>
+      <% elsif cat.image_url %>
+        <%= image_tag cat.image_url, width: "100%"%>
+      <% else %>
+        <p><em><%= "no image available" %></em></p>
+      <% end %>
         <div class="card-body">
           <h4 class="card-title"><strong><%= cat.name %></strong></h4>
           <p class="card-text"> <strong>Age:</strong> <%= cat.age %></p>
