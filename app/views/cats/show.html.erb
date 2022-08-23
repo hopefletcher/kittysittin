@@ -2,7 +2,13 @@
 <h1><%= @cat.name.titleize %></h1>
 
 <div class="card big-card"">
-      <img src="<%= @cat.image_url%>" alt="">
+      <% if @cat.photo.attached? %>
+      <%= cl_image_tag @cat.photo.key, class:"cloud-img" %>
+    <% elsif @cat.image_url %>
+      <%= image_tag @cat.image_url, width: "100%"%>
+    <% else %>
+      <p><em><%= "no image available" %></em></p>
+    <% end %>
       <div class="card-header">
           This is <%= @cat.name.titleize %>:
       </div>
