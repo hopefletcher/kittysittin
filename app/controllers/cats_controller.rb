@@ -9,10 +9,12 @@ class CatsController < ApplicationController
 
   def new
     @cat = Cat.new
+    authorize @cat
   end
 
   def create
     @cat = Cat.new(cat_params)
+    authorize @cat
     @cat.save
     @cat.user = current_user
     if @cat.save
@@ -42,6 +44,7 @@ class CatsController < ApplicationController
 
   def set_cat
     @cat = Cat.find(params[:id])
+    authorize @cat
   end
 
   def cat_params
