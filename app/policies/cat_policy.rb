@@ -18,11 +18,11 @@ class CatPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user || user.admin
+    user == record.user
     # user => current_user, record => @cat (argument passed to 'authorize')
   end
 
   def destroy?
-    user == record.user || user.admin
+    user == record.user
   end
 end
