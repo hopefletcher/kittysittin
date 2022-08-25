@@ -1,0 +1,6 @@
+
+<%= simple_form_for [ @cat, @booking ] do |p| %>
+  <%= p.input :start_date, as: :date, html5: true %>
+  <%= p.input :end_date, as: :date, html5: true %>
+  <%= p.submit %>
+<% end %>

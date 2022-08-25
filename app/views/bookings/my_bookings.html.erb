@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>My Bookings</h1>
+  <div class="container">
+    <div class="row">
+      <div class="cards">
+        <% @bookings.each do |booking| %>
+        <div class="card catcard">
+        <% if booking.cat.photo.attached? %>
+          <%= cl_image_tag booking.cat.photo.key, class:"cloud-img" %>
+        <% elsif booking.cat.image_url %>
+          <%= image_tag booking.cat.image_url, width: "100%"%>
+        <% else %>
+          <p><em><%= "no image available" %></em></p>
+        <% end %>
+          <div class="card-body">
+            <h4 class="card-title" sytle="text-align: center"><strong>You've booked <%= booking.cat.name %>!</strong></h4>
+            <p class="card-text"> <strong>Location:</strong> <%= booking.cat.location %></p>
+            <p class="card-text"> <strong>From:</strong> <%= booking.start_date %> <strong>to</strong> <%= booking.end_date %>.</p>
+            <p class="card-text">Pay for taking care of <%= booking.cat.name %> is <%= booking.cat.pay %>€ per day.</h4>
+            <p class="card-text">Your total earnings will be  <%= booking.cat.pay * (booking.end_date - booking.start_date).to_i %>€.</h4>
+            <div class="buttons">
+              <%= link_to "View #{booking.cat.name}", cat_path(booking.cat), class: "backlink btn-flat" %>
+            </div>
+          </div>
+      </div>
+      <% end %>
+    </div>
+    </div>
+</div>

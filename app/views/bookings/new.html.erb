@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h1>Book <%= @booking.cat.name %></h1>
+    <div class="card big-card"">
+      <% if @cat.photo.attached? %>
+      <%= cl_image_tag @cat.photo.key, class:"cloud-img" %>
+    <% elsif @cat.image_url %>
+      <%= image_tag @cat.image_url, width: "100%"%>
+    <% else %>
+      <p><em><%= "no image available" %></em></p>
+    <% end %>
+    </div>
+  <%= render "form", cat: @cat %>
+</div>

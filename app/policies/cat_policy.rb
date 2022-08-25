@@ -17,6 +17,10 @@ class CatPolicy < ApplicationPolicy
     true
   end
 
+  def my_cats?
+    true
+  end
+
   def update?
     user == record.user
     # user => current_user, record => @cat (argument passed to 'authorize')

@@ -36,9 +36,10 @@ class CatsController < ApplicationController
     redirect_to cats_path
   end
 
-  # def my_cats
-  #   @cats = Cat.where(user: current_user)
-  # end
+  def my_cats
+    @cats = Cat.where(user: current_user)
+    authorize @cats
+  end
 
   private
 

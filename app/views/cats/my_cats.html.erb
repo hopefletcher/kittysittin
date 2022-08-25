@@ -1,4 +1,4 @@
-<h1>All Cats</h1>
+<h1>My Cats</h1>
 <div class="container">
   <div class="row">
   <div class="cards">
@@ -21,7 +21,7 @@
             <% else %>
             <p class="card-text"><%= cat.name %> is <strong>not a house cat</strong>. You can kittysit <%= cat.name %> at your house or theirs. Contact <%= cat.name %>'s owner to make arrangements.</p>
             <% end %>
-          <%= link_to "View #{cat.name.titleize}", cat_path(cat), class: "btn btn-primary", style: "margin-top: auto" %>
+          <%= link_to "View #{cat.name}", cat_path(cat), class: "btn btn-primary", style: "margin-top: auto" %>
         </div>
       </div>
       <% end %>
