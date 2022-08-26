@@ -6,7 +6,9 @@ class CatsController < ApplicationController
     @markers = @cats.geocoded.map do |cat|
       {
         lat: cat.latitude,
-        lng: cat.longitude
+        lng: cat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { cat: cat }),
+        image_url: helpers.asset_url("catmarker.png")
       }
     end
   end

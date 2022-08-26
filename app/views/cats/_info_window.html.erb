@@ -1,0 +1,11 @@
+<div class="popup-container">
+  <h4><%= cat.name.titleize %></h3>
+  <p><%= cat.location %></p>
+  <% if cat.photo.attached? %>
+    <%= cl_image_tag cat.photo.key, class:"avatar-square" %>
+  <% elsif cat.image_url %>
+    <%= image_tag cat.image_url, class: "avatar-square" %>
+  <% else %>
+    <p><em><%= "no image available" %></em></p>
+  <% end %>
+</div>
